@@ -1,4 +1,5 @@
 import React from 'react';
+import ServicesList from '../components/ServicesList';
 import servicesContent from './services-content';
 
 const ServicesPage = ({ match }) => {
@@ -7,6 +8,8 @@ const ServicesPage = ({ match }) => {
 
     if(!services) return <h1>{name} service is not offered.</h1>
 
+    const otherServices = servicesContent.filter(service => service.name !== name);
+
     return (
         <>
             <h1>Easy Tune Up Mechanic Shop {name} Services</h1>
@@ -14,6 +17,8 @@ const ServicesPage = ({ match }) => {
             {services.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+            <h3>Other Services:</h3>
+            <ServicesList services={otherServices} />
         </>
     );
 };

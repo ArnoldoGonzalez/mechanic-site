@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
+import ServicesListPage from './pages/ServicesListPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NavBar from './NavBar';
@@ -17,6 +18,7 @@ function App() {
         <NavBar />
         <div id="page-body">
           <Route path="/" component={HomePage} exact />
+          <Route path="/services-list" component={ServicesListPage} />
           <Route path="/services/:name" component={ServicesPage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/contact" component={ContactPage} />
