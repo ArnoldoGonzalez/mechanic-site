@@ -1,12 +1,13 @@
 import React from 'react';
 import ServicesList from '../components/ServicesList';
+import NotFoundPage from './NotFoundPage';
 import servicesContent from './services-content';
 
 const ServicesPage = ({ match }) => {
     const name = match.params.name;
     const services = servicesContent.find(services => services.name === name);
 
-    if(!services) return <h1>{name} service is not offered.</h1>
+    if(!services) return <NotFoundPage />
 
     const otherServices = servicesContent.filter(service => service.name !== name);
 
